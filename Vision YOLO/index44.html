@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preview</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      html, body {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .video-container {
+        position: relative;
+        width: 800px;
+        height: 450px;
+        margin: auto;
+        border: 5px solid #cac4d0;
+        border-radius: 18px;
+        overflow: hidden;
+        background-color: #fef7ff;
+      }
+      .video-element {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #ffffff;
+        font-size: 24px;
+        font-weight: bold;
+        visibility: hidden;
+      }
+      .video-container:hover .overlay {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="w-[1100px] h-[2000px] relative">
+      <div
+        class="w-[1100px] h-[2000px] absolute left-0 top-0 overflow-hidden rounded-[18px] bg-[#fef7ff] border-8 border-[#cac4d0]"
+      >
+        <div
+          class="flex justify-start items-center w-[905px] absolute left-0 top-0 gap-4 p-4 bg-[#fef7ff]"
+          style="box-shadow: 0px 0.5936920642852783px 0px 0 rgba(0,0,0,0.15);"
+        >
+          <div class="flex justify-start items-center flex-grow-0 flex-shrink-0 relative gap-3">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <path
+                d="M19.9999 10.9995H7.82988L13.4199 5.40951L11.9999 3.99951L3.99988 11.9995L11.9999 19.9995L13.4099 18.5895L7.82988 12.9995H19.9999V10.9995Z"
+                fill="#79747E"
+              ></path></svg
+            ><svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <path
+                d="M11.9999 3.99951L10.5899 5.40951L16.1699 10.9995H3.99988V12.9995H16.1699L10.5899 18.5895L11.9999 19.9995L19.9999 11.9995L11.9999 3.99951Z"
+                fill="#79747E"
+              ></path></svg
+            ><svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+              preserveAspectRatio="none"
+            >
+              <path
+                d="M17.6499 6.34951C16.1999 4.89951 14.2099 3.99951 11.9999 3.99951C7.57989 3.99951 4.00989 7.57951 4.00989 11.9995C4.00989 16.4195 7.57989 19.9995 11.9999 19.9995C15.7299 19.9995 18.8399 17.4495 19.7299 13.9995H17.6499C16.8299 16.3295 14.6099 17.9995 11.9999 17.9995C8.68989 17.9995 5.99989 15.3095 5.99989 11.9995C5.99989 8.68951 8.68989 5.99951 11.9999 5.99951C13.6599 5.99951 15.1399 6.68951 16.2199 7.77951L12.9999 10.9995H19.9999V3.99951L17.6499 6.34951Z"
+                fill="#79747E"
+              ></path>
+            </svg>
+          </div>
+          <div
+            class="flex justify-between items-center flex-grow relative overflow-hidden px-4 py-1.5 rounded-[46.08px] bg-[#f3edf7]"
+          >
+            <div class="flex justify-start items-center flex-grow relative gap-2">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="flex-grow-0 flex-shrink-0 w-[15.36px] h-[15.36px] relative"
+                preserveAspectRatio="none"
+              >
+                <g clip-path="url(#clip0_39_7641)">
+                  <path
+                    opacity="0.65"
+                    d="M11.5201 5.44069H10.8801V4.16069C10.8801 2.39429 9.44646 0.960693 7.68006 0.960693C5.91366 0.960693 4.48006 2.39429 4.48006 4.16069V5.44069H3.84006C3.13606 5.44069 2.56006 6.01669 2.56006 6.72069V13.1207C2.56006 13.8247 3.13606 14.4007 3.84006 14.4007H11.5201C12.2241 14.4007 12.8001 13.8247 12.8001 13.1207V6.72069C12.8001 6.01669 12.2241 5.44069 11.5201 5.44069ZM7.68006 11.2007C6.97606 11.2007 6.40006 10.6247 6.40006 9.92069C6.40006 9.21669 6.97606 8.64069 7.68006 8.64069C8.38406 8.64069 8.96006 9.21669 8.96006 9.92069C8.96006 10.6247 8.38406 11.2007 7.68006 11.2007ZM9.66406 5.44069H5.69606V4.16069C5.69606 3.06629 6.58566 2.17669 7.68006 2.17669C8.77446 2.17669 9.66406 3.06629 9.66406 4.16069V5.44069Z"
+                    fill="#49454F"
+                  ></path>
+                </g>
+                <defs>
+                  <clipPath id="clip0_39_7641">
+                    <rect
+                      width="15.36"
+                      height="15.36"
+                      fill="white"
+                      transform="translate(0 0.320068)"
+                    ></rect>
+                  </clipPath>
+                </defs>
+              </svg>
+              <p class="flex-grow w-[601.64px] text-base text-left text-[#1d1b20]">
+                www.intel_geti_Ukulele_learn_Am_code.com
+              </p>
+            </div>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="flex-grow-0 flex-shrink-0 w-5 h-5 relative"
+              preserveAspectRatio="xMidYMid meet"
+            >
+              <path
+                d="M18.3332 7.69837L12.3415 7.18171L9.99984 1.66504L7.65817 7.19004L1.6665 7.69837L6.2165 11.64L4.84984 17.4984L9.99984 14.39L15.1498 17.4984L13.7915 11.64L18.3332 7.69837ZM9.99984 12.8317L6.8665 14.7234L7.69984 11.1567L4.93317 8.75671L8.58317 8.44004L9.99984 5.08171L11.4248 8.44837L15.0748 8.76504L12.3082 11.165L13.1415 14.7317L9.99984 12.8317Z"
+                fill="#79747E"
+              ></path>
+            </svg>
+          </div>
+          <div
+            class="flex-grow-0 flex-shrink-0 w-7 h-7 relative overflow-hidden rounded-[109.09px] bg-[#79747e]"
+          >
+            <p class="absolute left-[7.18px] top-[2.82px] text-base text-center text-white">M</p>
+          </div>
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+            preserveAspectRatio="xMidYMid meet"
+          >
+            <path
+              d="M12 7.99951C13.1 7.99951 14 7.09951 14 5.99951C14 4.89951 13.1 3.99951 12 3.99951C10.9 3.99951 10 4.89951 10 5.99951C10 7.09951 10.9 7.99951 12 7.99951ZM12 9.99951C10.9 9.99951 10 10.8995 10 11.9995C10 13.0995 10.9 13.9995 12 13.9995C13.1 13.9995 14 13.0995 14 11.9995C14 10.8995 13.1 9.99951 12 9.99951ZM12 15.9995C10.9 15.9995 10 16.8995 10 17.9995C10 19.0995 10.9 19.9995 12 19.9995C13.1 19.9995 14 19.0995 14 17.9995C14 16.8995 13.1 15.9995 12 15.9995Z"
+              fill="#79747E"
+            ></path>
+          </svg>
+        </div>
+        <div class="w-[855px] h-[190px]">
+          <div class="w-[855px] h-[119px]">
+            <div
+              class="flex flex-col justify-start items-start w-[855px] h-[119px] absolute left-6 top-[68px] gap-1 pb-6"
+            >
+              <div
+                class="flex justify-between items-start self-stretch flex-grow w-[855px] h-[59px] px-3 pt-2"
+              ></div>
+              <div
+                class="flex justify-start items-start self-stretch flex-grow-0 flex-shrink-0 relative gap-2.5 px-6"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-2xl text-left text-[#1d1b20]">Am코드</p>
+              </div>
+            </div>
+          </div>
+          <div class="w-[543px] h-10">
+            <div
+              class="flex flex-col justify-center items-center h-10 absolute left-6 top-[218px] overflow-hidden rounded-2xl bg-[#ece6f0]"
+              style="box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0 rgba(0,0,0,0.3);"
+            >
+              <div
+                class="flex justify-center items-center self-stretch flex-grow relative gap-3 pl-4 pr-5 py-4"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-sm font-bold text-center text-[#65558f]">
+                  원래대로
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center h-10 absolute left-[142px] top-[218px] overflow-hidden rounded-2xl bg-[#ece6f0]"
+              style="box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0 rgba(0,0,0,0.3);"
+            >
+              <div
+                class="flex justify-center items-center self-stretch flex-grow relative gap-3 pl-4 pr-5 py-4"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-sm font-bold text-center text-[#65558f]">
+                  1.5배 확대
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center h-10 absolute left-[260px] top-[218px] overflow-hidden rounded-2xl bg-[#ece6f0]"
+              style="box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0 rgba(0,0,0,0.3);"
+            >
+              <div
+                class="flex justify-center items-center self-stretch flex-grow relative gap-3 pl-4 pr-5 py-4"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-sm font-bold text-center text-[#65558f]">
+                  2배 확대
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center h-10 absolute left-[377px] top-[218px] overflow-hidden rounded-2xl bg-[#ece6f0]"
+              style="box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0 rgba(0,0,0,0.3);"
+            >
+              <div
+                class="flex justify-center items-center self-stretch flex-grow relative gap-3 pl-4 pr-5 py-4"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-sm font-bold text-center text-[#65558f]">
+                  확대 +
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center h-10 absolute left-[487px] top-[218px] overflow-hidden rounded-2xl bg-[#ece6f0]"
+              style="box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0 rgba(0,0,0,0.3);"
+            >
+              <div
+                class="flex justify-center items-center self-stretch flex-grow relative gap-3 pl-4 pr-5 py-4"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-sm font-bold text-center text-[#65558f]">
+                  축소 -
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center h-10 absolute left-[600px] top-[218px] overflow-hidden rounded-2xl bg-[#ece6f0]"
+              style="box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15), 0px 1px 3px 0 rgba(0,0,0,0.3);"
+            >
+              <div
+                class="flex justify-center items-center self-stretch flex-grow relative gap-3 pl-4 pr-5 py-4"
+              >
+                <p class="flex-grow-0 flex-shrink-0 text-sm font-bold text-center text-[#65558f]">
+                  고대비
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="w-[832px] h-12">
+            <div class="w-[767px] h-5">
+              <p class="absolute left-[98px] top-[90px] text-sm font-bold text-center text-black">
+                프로필
+              </p>
+              <div class="w-[69px] h-5 absolute left-[367px] top-[90px]">
+                <p class="absolute left-0 top-0 text-sm font-bold text-center text-black">
+                  홈으로 이동
+                </p>
+              </div>
+              <p class="absolute left-[468px] top-[90px] text-sm font-bold text-center text-black">
+                도움말 보기
+              </p>
+              <p class="absolute left-[687px] top-[90px] text-sm font-bold text-center text-black">
+                알림내역
+              </p>
+              <p class="absolute left-[813px] top-[90px] text-sm font-bold text-center text-black">
+                환경설정
+              </p>
+            </div>
+            <div class="w-[763px] h-12">
+              <div class="w-[763px] h-12">
+                <div
+                  class="flex flex-col justify-center items-center w-12 h-12 absolute left-[33px] top-[75px] gap-2.5"
+                >
+                  <div
+                    class="flex justify-center items-center flex-grow-0 flex-shrink-0 overflow-hidden gap-2.5 rounded-[100px]"
+                  >
+                    <div
+                      class="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 p-2"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+                        preserveAspectRatio="xMidYMid meet"
+                      >
+                        <path
+                          d="M5.85 17.1C6.7 16.45 7.65 15.9375 8.7 15.5625C9.75 15.1875 10.85 15 12 15C13.15 15 14.25 15.1875 15.3 15.5625C16.35 15.9375 17.3 16.45 18.15 17.1C18.7333 16.4167 19.1875 15.6417 19.5125 14.775C19.8375 13.9083 20 12.9833 20 12C20 9.78333 19.2208 7.89583 17.6625 6.3375C16.1042 4.77917 14.2167 4 12 4C9.78333 4 7.89583 4.77917 6.3375 6.3375C4.77917 7.89583 4 9.78333 4 12C4 12.9833 4.1625 13.9083 4.4875 14.775C4.8125 15.6417 5.26667 16.4167 5.85 17.1ZM12 13C11.0167 13 10.1875 12.6625 9.5125 11.9875C8.8375 11.3125 8.5 10.4833 8.5 9.5C8.5 8.51667 8.8375 7.6875 9.5125 7.0125C10.1875 6.3375 11.0167 6 12 6C12.9833 6 13.8125 6.3375 14.4875 7.0125C15.1625 7.6875 15.5 8.51667 15.5 9.5C15.5 10.4833 15.1625 11.3125 14.4875 11.9875C13.8125 12.6625 12.9833 13 12 13ZM12 22C10.6167 22 9.31667 21.7375 8.1 21.2125C6.88333 20.6875 5.825 19.975 4.925 19.075C4.025 18.175 3.3125 17.1167 2.7875 15.9C2.2625 14.6833 2 13.3833 2 12C2 10.6167 2.2625 9.31667 2.7875 8.1C3.3125 6.88333 4.025 5.825 4.925 4.925C5.825 4.025 6.88333 3.3125 8.1 2.7875C9.31667 2.2625 10.6167 2 12 2C13.3833 2 14.6833 2.2625 15.9 2.7875C17.1167 3.3125 18.175 4.025 19.075 4.925C19.975 5.825 20.6875 6.88333 21.2125 8.1C21.7375 9.31667 22 10.6167 22 12C22 13.3833 21.7375 14.6833 21.2125 15.9C20.6875 17.1167 19.975 18.175 19.075 19.075C18.175 19.975 17.1167 20.6875 15.9 21.2125C14.6833 21.7375 13.3833 22 12 22Z"
+                          fill="#1D1B20"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col justify-center items-center w-12 h-12 absolute left-[620px] top-[75px] gap-2.5"
+                >
+                  <div
+                    class="flex justify-center items-center flex-grow-0 flex-shrink-0 overflow-hidden gap-2.5 rounded-[100px]"
+                  >
+                    <div
+                      class="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 p-2"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+                        preserveAspectRatio="xMidYMid meet"
+                      >
+                        <path
+                          d="M4 19V17H6V10C6 8.61667 6.41667 7.39167 7.25 6.325C8.08333 5.24167 9.16667 4.53333 10.5 4.2V3.5C10.5 3.08333 10.6417 2.73333 10.925 2.45C11.225 2.15 11.5833 2 12 2C12.4167 2 12.7667 2.15 13.05 2.45C13.35 2.73333 13.5 3.08333 13.5 3.5V4.2C14.8333 4.53333 15.9167 5.24167 16.75 6.325C17.5833 7.39167 18 8.61667 18 10V17H20V19H4ZM12 22C11.45 22 10.975 21.8083 10.575 21.425C10.1917 21.025 10 20.55 10 20H14C14 20.55 13.8 21.025 13.4 21.425C13.0167 21.8083 12.55 22 12 22ZM8 17H16V10C16 8.9 15.6083 7.95833 14.825 7.175C14.0417 6.39167 13.1 6 12 6C10.9 6 9.95833 6.39167 9.175 7.175C8.39167 7.95833 8 8.9 8 10V17Z"
+                          fill="#49454F"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="flex flex-col justify-center items-center w-12 h-12 absolute left-[748px] top-[75px] gap-2.5"
+                >
+                  <div
+                    class="flex justify-center items-center flex-grow-0 flex-shrink-0 overflow-hidden gap-2.5 rounded-[100px]"
+                  >
+                    <div
+                      class="flex justify-center items-center flex-grow-0 flex-shrink-0 relative gap-2.5 p-2"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="flex-grow-0 flex-shrink-0 w-6 h-6 relative"
+                        preserveAspectRatio="xMidYMid meet"
+                      >
+                        <path
+                          d="M9.24995 22L8.84995 18.8C8.63328 18.7167 8.42912 18.6167 8.23745 18.5C8.04578 18.3833 7.85828 18.2583 7.67495 18.125L4.69995 19.375L1.94995 14.625L4.52495 12.675C4.50828 12.5583 4.49995 12.4458 4.49995 12.3375V11.6625C4.49995 11.5542 4.50828 11.4417 4.52495 11.325L1.94995 9.375L4.69995 4.625L7.67495 5.875C7.85828 5.74167 8.04995 5.61667 8.24995 5.5C8.44995 5.38333 8.64995 5.28333 8.84995 5.2L9.24995 2H14.75L15.15 5.2C15.3666 5.28333 15.5708 5.38333 15.7625 5.5C15.9541 5.61667 16.1416 5.74167 16.325 5.875L19.3 4.625L22.05 9.375L19.475 11.325C19.4916 11.4417 19.5 11.5542 19.5 11.6625V12.3375C19.5 12.4458 19.4833 12.5583 19.45 12.675L22.025 14.625L19.275 19.375L16.325 18.125C16.1416 18.2583 15.95 18.3833 15.75 18.5C15.55 18.6167 15.35 18.7167 15.15 18.8L14.75 22H9.24995ZM11 20H12.975L13.325 17.35C13.8416 17.2167 14.3208 17.0208 14.7625 16.7625C15.2041 16.5042 15.6083 16.1917 15.975 15.825L18.45 16.85L19.425 15.15L17.275 13.525C17.3583 13.2917 17.4166 13.0458 17.45 12.7875C17.4833 12.5292 17.5 12.2667 17.5 12C17.5 11.7333 17.4833 11.4708 17.45 11.2125C17.4166 10.9542 17.3583 10.7083 17.275 10.475L19.425 8.85L18.45 7.15L15.975 8.2C15.6083 7.81667 15.2041 7.49583 14.7625 7.2375C14.3208 6.97917 13.8416 6.78333 13.325 6.65L13 4H11.025L10.675 6.65C10.1583 6.78333 9.67912 6.97917 9.23745 7.2375C8.79578 7.49583 8.39162 7.80833 8.02495 8.175L5.54995 7.15L4.57495 8.85L6.72495 10.45C6.64162 10.7 6.58328 10.95 6.54995 11.2C6.51662 11.45 6.49995 11.7167 6.49995 12C6.49995 12.2667 6.51662 12.525 6.54995 12.775C6.58328 13.025 6.64162 13.275 6.72495 13.525L4.57495 15.15L5.54995 16.85L8.02495 15.8C8.39162 16.1833 8.79578 16.5042 9.23745 16.7625C9.67912 17.0208 10.1583 17.2167 10.675 17.35L11 20ZM12.05 15.5C13.0166 15.5 13.8416 15.1583 14.525 14.475C15.2083 13.7917 15.55 12.9667 15.55 12C15.55 11.0333 15.2083 10.2083 14.525 9.525C13.8416 8.84167 13.0166 8.5 12.05 8.5C11.0666 8.5 10.2375 8.84167 9.56245 9.525C8.88745 10.2083 8.54995 11.0333 8.54995 12C8.54995 12.9667 8.88745 13.7917 9.56245 14.475C10.2375 15.1583 11.0666 15.5 12.05 15.5Z"
+                          fill="#49454F"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Container -->
+      <div class="video-container absolute left-[52px] top-[280px]">
+        <video class="video-element" autoplay muted>
+          <source src="video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="overlay">
+          우쿨렐레 코드 감지 중...
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+'''
+video-container 클래스를 추가하여 동영상 및 오버레이를 담는 컨테이너를 생성
+video-element 클래스를 추가하여 동영상의 스타일을 설정.
+overlay 클래스를 추가하여 동영상에 오버레이로 표시될 텍스트를 추가. 동영상 위에 마우스를 올리면 오버레이가 나타나도록 설정.
+비디오 소스(video.mp4)를 포함하여 동영상을 자동 재생하고 음소거된 상태로 설정.
+'''
